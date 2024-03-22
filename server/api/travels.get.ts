@@ -1,31 +1,23 @@
 import { faker } from "@faker-js/faker";
-
-interface Travel {
-  id: String;
-  title: String;
-  start: Date;
-  end: Date;
-  description: String;
-  pictureUrl: String;
-  price: Number;
-  rating: Number;
-}
+import { Travel } from "@/types/travel";
 
 export default defineEventHandler(async (event) => {
   let travels: Travel[] = [];
-  let startDate = faker.date.soon({ days: 30 });
 
   for (let i = 0; i <= 30; i++) {
+    const country = faker.location.country();
+    let startDate = faker.date.soon({ days: 30 }).toString();
     let travel: Travel = {
       id: faker.string.uuid(),
       title:
         faker.helpers
           .arrayElements(["Tour in ", "15 giorni in ", "Scopri il "], 1)
-          .toString() + faker.location.county(),
+          .toString() + country,
+      country: country,
       start: startDate,
-      end: faker.date.soon({ days: 30, refDate: startDate }),
+      end: faker.date.soon({ days: 30, refDate: startDate }).toString(),
       description: faker.lorem.paragraph(3),
-      pictureUrl: faker.image.url({ width: 300, height: 200 }),
+      pictureUrl: `https://loremflickr.com/180/111/${country.toLowerCase().replace(/\W+/g, "-")}`,
       price: faker.number.float({
         min: 1000,
         max: 5000,
