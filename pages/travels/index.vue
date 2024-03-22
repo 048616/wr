@@ -11,11 +11,7 @@
       </option>
     </select>
   </div>
-  <TravelsRow
-    v-for="(item, index) in travelsData"
-    :key="index"
-    :travel="item"
-  />
+  <TravelsRow v-for="(item, index) in travels" :key="index" :travel="item" />
 </template>
 <script setup lang="ts">
 import { useTravelsStore } from "@/store/travels";
@@ -23,7 +19,12 @@ const selected: Ref<string> = ref("");
 
 const { travelsData, Countries, filterByCountry } = useTravelsStore();
 
-watch(selected, (newValue) => {
-  filterByCountry(newValue);
+const {
+  data: travels,
+  error,
+  refresh,
+} = await useFetch("/api/travels", {
+  /* Changing the id will trigger a refetch */
+  watch: [selected],
 });
 </script>

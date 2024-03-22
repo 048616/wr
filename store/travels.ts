@@ -14,7 +14,7 @@ export const useTravelsStore = defineStore({
       console.log(query);
       if (query) {
         this.travelsData = this.travelsData.filter((o) => {
-          return (o.country = query);
+          return o.country === query;
         });
       }
       console.log(this.travelsData);
