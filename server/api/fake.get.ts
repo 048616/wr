@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { Travel } from "@/types/travel";
+import type { Travel } from "~/types/travel";
 
 export default defineEventHandler(async (event) => {
   let travels: Travel[] = [];

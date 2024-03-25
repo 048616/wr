@@ -7,5 +7,18 @@ export function useTravels() {
     return date1.diff(date2, "days");
   };
 
-  return { getDuration };
+  const formatCurrency = (currency: number, locale: string): string => {
+    let c: string = "";
+    switch (locale) {
+      case "it":
+        c = Intl.NumberFormat(locale, {
+          style: "currency",
+          currency: "EUR",
+        }).format(currency);
+        break;
+    }
+    return c;
+  };
+
+  return { getDuration, formatCurrency };
 }

@@ -9,17 +9,7 @@ export const useTravelsStore = defineStore({
       travelsData: data as Travel[],
     };
   },
-  actions: {
-    filterByCountry(query: string): void {
-      console.log(query);
-      if (query) {
-        this.travelsData = this.travelsData.filter((o) => {
-          return o.country === query;
-        });
-      }
-      console.log(this.travelsData);
-    },
-  },
+  actions: {},
   getters: {
     Countries: (state) => {
       const country: string[] = state.travelsData.map((o) => o.country);

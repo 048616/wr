@@ -11,6 +11,9 @@
     </div>
     <img :src="travel.pictureUrl" :alt="travel.title" />
     <div>
+      <div class="font-bold text-green-700">
+        {{ formatCurrency(travel.price, "it") }}
+      </div>
       <div class="font-bold text-lg">{{ travel.title }}</div>
       <div>
         <span>{{ Duration }}</span
@@ -41,7 +44,7 @@ const Duration = computed(() => {
   return getDuration(props.travel.start, props.travel.end);
 });
 
-const { getDuration } = useTravels();
+const { getDuration, formatCurrency } = useTravels();
 </script>
 <style scoped>
 [v-cloak] {

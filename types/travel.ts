@@ -6,6 +6,6 @@ export interface Travel {
   end: string;
   description: string;
   pictureUrl: string;
-  price: Number;
-  rating: Number;
+  price: number;
+  rating: number;
 }

@@ -2,9 +2,22 @@ import type { Travel } from "~/types/travel";
 import { data } from "@/store/data";
 
 export default defineEventHandler(async (event) => {
-  let travels: Travel[] = data;
+  const query = getQuery(event);
 
-  console.log("pippo");
+  let travels: Travel[] | undefined = data;
 
-  return travels;
+  if (travels) {
+    if (query.orderByprice) {
+      travels = travels.sort((a: Travel, b: Travel) => {
+        const order = query.orderByprice === "dsc" ? -1 : 1;
+        return order * (Number(a.price) - Number(b.price));
+      });
+    }
+
+    if (query.country) {
+      travels = travels.filter((o: Travel) => o.country === query.country);
+    }
+  }
+
+  return travels ?? [];
 });
