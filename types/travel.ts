@@ -1,5 +1,5 @@
 export interface Travel {
-  id: string;
+  uid: string;
   title: string;
   country: string;
   start: string;
