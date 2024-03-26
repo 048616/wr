@@ -224,13 +224,12 @@ const { data: travel, pending } = await useFetch<Travel>("/api/book/travel", {
 });
 
 const nextStep = () => {
-  booking.activeBooking = {
-    travel: travel,
-    people: people,
-    room: room,
-    insurane: insurance,
-  };
-  modal.activeModal.name = "";
+  booking.activeBooking.travel = travel;
+  booking.activeBooking.people = people.value;
+  booking.activeBooking.room = room.value;
+  booking.activeBooking.insurance = insurance.value;
+
+  modal.activeModal.name = "CommonModalsUserInfo";
 };
 const abort = () => {
   modal.activeModal.name = "";

@@ -22,6 +22,10 @@ const getComponent = (name: string): any => {
   switch (name) {
     case "CommonModalsBook":
       c = resolveComponent("CommonModalsBook");
+      break;
+    case "CommonModalsUserInfo":
+      c = resolveComponent("CommonModalsUserInfo");
+      break;
   }
 
   return c;
