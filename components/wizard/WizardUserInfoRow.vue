@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible">
     <div>
       <label
         for="first_name"
@@ -30,13 +30,16 @@
         required
       />
     </div>
-    <button
-      @click="addInfo()"
-      type="button"
-      class="my-2 me-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    >
-      Default
-    </button>
+    <div class="mt-3 text-end">
+      <button
+        @click="addInfo()"
+        type="button"
+        class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Aggiungi partecipante
+      </button>
+    </div>
+
     <div class="my-5 border-b border-slate-300"></div>
   </div>
 </template>
@@ -44,11 +47,12 @@
 <script lang="ts" setup>
 import { useTravelsStore } from "~/store/travelStore";
 const booking = useTravelsStore();
-
+const visible = ref<boolean>(true);
 const name = ref<string>("");
 const last_name = ref<string>("");
 
 const addInfo = (): void => {
+  visible.value = false;
   booking.activeBooking.customers.push({
     name: name.value,
     last_name: last_name.value,

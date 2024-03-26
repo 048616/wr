@@ -73,7 +73,7 @@ const { getDuration, formatCurrency } = useTravels();
 
 const openModal = (): void => {
   modal.setActiveModal({
-    name: "CommonModalsBook",
+    name: "WizardBook",
     travelUid: props.travel.uid,
   });
 };

@@ -20,11 +20,14 @@ const modal = useModalStore();
 const getComponent = (name: string): any => {
   let c = null;
   switch (name) {
-    case "CommonModalsBook":
-      c = resolveComponent("CommonModalsBook");
+    case "WizardBook":
+      c = resolveComponent("WizardBook");
       break;
-    case "CommonModalsUserInfo":
-      c = resolveComponent("CommonModalsUserInfo");
+    case "WizardUserInfo":
+      c = resolveComponent("WizardUserInfo");
+      break;
+    case "WizardPayment":
+      c = resolveComponent("WizardPayment");
       break;
   }
 
