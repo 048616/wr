@@ -7,6 +7,15 @@
           Totale <span>{{ formatCurrency(Total, "it") }}</span>
         </div>
       </div>
+      <div
+        v-if="showMessage"
+        class="mb-4 rounded-lg bg-green-50 p-4 text-sm text-green-800 dark:bg-gray-800 dark:text-green-400"
+        role="alert"
+      >
+        <span class="font-medium">Il tuo pagamento e andato a buon fine</span>Il
+        tuo pagamento e andato a buon fine, riceverai una mail con tutti i dati
+        per il tuo viaggio
+      </div>
       <div class="flex justify-between">
         <button
           @click="nextStep()"
@@ -29,15 +38,29 @@
 
 <script lang="ts" setup>
 import { useTravelsStore } from "~/store/travelStore";
-
+import { useModalStore } from "~~/store/modalStore";
 const booking = useTravelsStore();
+const modal = useModalStore();
 const { formatCurrency } = useTravels();
+
+const showMessage = ref<boolean>(false);
 
 const Total = computed<number>(() => {
   return (
     booking.activeBooking.travel.price * booking.activeBooking.customers.length
   );
 });
+
+const nextStep = () => {
+  showMessage.value = true;
+
+  setTimeout(() => {
+    modal.activeModal.name = "";
+  }, 3000);
+};
+const abort = () => {
+  modal.activeModal.name = "";
+};
 </script>
 
 <style></style>
