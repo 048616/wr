@@ -49,7 +49,7 @@
         class="mb-2 cursor-pointer rounded-lg bg-purple-700 px-5 py-2.5 text-sm font-medium text-white"
         @click="openModal()"
       >
-     {{ $t('book_now') }}
+        {{ $t("book_now") }}
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ const { getDuration, formatCurrency } = useTravels();
 
 const openModal = (): void => {
   modal.setActiveModal({
-    name: "Book",
+    name: "CommonModalsBook",
     travelUid: props.travel.uid,
   });
 };

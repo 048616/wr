@@ -7,6 +7,7 @@ export const useTravelsStore = defineStore({
   state: () => {
     return {
       travelsData: data as Travel[],
+      activeBooking: {},
     };
   },
   actions: {},

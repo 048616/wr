@@ -1,6 +1,5 @@
 <template>
   <div>
-    <common-modals-container />
     <nav class="flex flex-wrap items-center justify-between bg-teal-500 p-6">
       <div class="mr-6 flex flex-shrink-0 items-center text-white">
         <svg
@@ -63,5 +62,6 @@
     <div class="container mx-auto px-2">
       <slot />
     </div>
+    <common-modals-container />
   </div>
 </template>
