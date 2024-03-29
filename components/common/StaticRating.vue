@@ -51,7 +51,4 @@ function Fill(value, index) {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-. {
-}
 </style>
