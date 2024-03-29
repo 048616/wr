@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 
   modules: ["dayjs-nuxt", "@pinia/nuxt", "@nuxtjs/i18n"],
   css: ["~/assets/css/main.css"],
@@ -21,6 +21,12 @@ export default defineNuxtConfig({
       {
         code: "it",
         file: "it-IT.json",
+        iso: "it-IT",
+      },
+      {
+        code: "en",
+        file: "en-EN.json",
+        iso: "en-EN",
       },
     ],
     langDir: "lang",
