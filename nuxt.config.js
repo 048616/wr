@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: true, disableAuthorization: true },
 
   modules: ["dayjs-nuxt", "@pinia/nuxt", "@nuxtjs/i18n"],
   css: ["~/assets/css/main.css"],

@@ -31,18 +31,8 @@
       </div>
       <div class="block w-full flex-grow lg:flex lg:w-auto lg:items-center">
         <div class="text-sm lg:flex-grow">
-          <a
-            href="#responsive-header"
-            class="mr-4 mt-4 block text-teal-200 hover:text-white lg:mt-0 lg:inline-block"
-          >
-            Docs
-          </a>
-          <a
-            href="#responsive-header"
-            class="mr-4 mt-4 block text-teal-200 hover:text-white lg:mt-0 lg:inline-block"
-          >
-            Examples
-          </a>
+          <NuxtLink to="/travels/">Travel </NuxtLink>
+          <NuxtLink to="/travels/book/0287587428570">Book </NuxtLink>
           <a
             href="#responsive-header"
             class="mt-4 block text-teal-200 hover:text-white lg:mt-0 lg:inline-block"

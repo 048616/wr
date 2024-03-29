@@ -25,7 +25,7 @@
   </div>
   <div v-if="!pending">
     <TravelsRow
-      v-for="(item, index) in travels as unknown as Travel[]"
+      v-for="(item, index) in (travels as unknown as Travel[])"
       :key="index"
       :travel="item"
     />

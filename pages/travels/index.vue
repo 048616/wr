@@ -24,10 +24,7 @@
     </select>
   </div>
   <div v-if="!pending">
-    <TravelsRow
-      v-for="(item, index) in travels"
-      :key="index"
-      :travel="item as unknown as Travel"
+    <TravelsRow v-for="(item, index) in (travels as unknown as Travel[])" :key="index" :travel="item"
     />
   </div>
 </template>
