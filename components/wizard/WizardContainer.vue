@@ -13,26 +13,26 @@
 </template>
 
 <script lang="ts" setup>
-import { useModalStore } from "~~/store/modalStore";
+import { useModalStore } from '~~/store/modalStore'
 
-const modal = useModalStore();
+const modal = useModalStore()
 
-const getComponent = (name: string): any => {
-  let c = null;
+const getComponent = (name: string): Comment => {
+  let c = null
   switch (name) {
-    case "WizardBook":
-      c = resolveComponent("WizardBook");
-      break;
-    case "WizardUserInfo":
-      c = resolveComponent("WizardUserInfo");
-      break;
-    case "WizardPayment":
-      c = resolveComponent("WizardPayment");
-      break;
+    case 'WizardBook':
+      c = resolveComponent('WizardBook')
+      break
+    case 'WizardUserInfo':
+      c = resolveComponent('WizardUserInfo')
+      break
+    case 'WizardPayment':
+      c = resolveComponent('WizardPayment')
+      break
   }
 
-  return c;
-};
+  return c
+}
 </script>
 
 <style></style>

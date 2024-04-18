@@ -1,35 +1,47 @@
 <template>
-  <div :class="Classes" style="line-height: 100%">
-    <i class="not-italic" v-for="item in 5" :class="Fill(rating, item)">★</i>
+  <div
+    :class="styleClasses"
+    style="line-height: 100%"
+  >
+    <i
+      v-for="(item, index) in 5"
+      :key="index"
+      class="not-italic"
+      :class="Fill(rating, item)"
+    >★</i>
   </div>
 </template>
+
 <script setup>
-const props = defineProps({
-  rating: Number,
+defineProps({
+  rating: {
+    type: Number,
+    default: 0,
+  },
   color: {
     type: String,
-    default: "#fdae16",
+    default: '#fdae16',
   },
-  Classes: {
+  styleClasses: {
     type: String,
-    default: "text-[30px]",
+    default: 'text-[30px]',
   },
-});
+})
 
 function Fill(value, index) {
-  let fill = "";
-  let k = value - index + 1;
+  let fill = ''
+  const k = value - index + 1
   if (k >= 0) {
-    fill = "full";
+    fill = 'full'
   }
   if (k < 0.5) {
-    fill = "empty";
+    fill = 'empty'
   }
 
   if (k == 0.5) {
-    fill = "half";
+    fill = 'half'
   }
-  return fill;
+  return fill
 }
 </script>
 

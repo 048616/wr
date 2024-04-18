@@ -1,24 +1,24 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs'
 
 export function useTravels() {
-  const getDuration = (start: string, end: string): Number => {
-    const date1 = dayjs(end);
-    const date2 = dayjs(start);
-    return date1.diff(date2, "days");
-  };
+  const getDuration = (start: string, end: string): number => {
+    const date1 = dayjs(end)
+    const date2 = dayjs(start)
+    return date1.diff(date2, 'days')
+  }
 
   const formatCurrency = (currency: number, locale: string): string => {
-    let c: string = "";
+    let c: string = ''
     switch (locale) {
-      case "it":
+      case 'it':
         c = Intl.NumberFormat(locale, {
-          style: "currency",
-          currency: "EUR",
-        }).format(currency);
-        break;
+          style: 'currency',
+          currency: 'EUR',
+        }).format(currency)
+        break
     }
-    return c;
-  };
+    return c
+  }
 
-  return { getDuration, formatCurrency };
+  return { getDuration, formatCurrency }
 }

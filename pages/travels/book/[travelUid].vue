@@ -3,12 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Travel } from "../../../types/travel";
-import { useRoute } from "vue-router";
-const route = useRoute();
-console.log(route.params.travelUid);
+import { useRoute } from 'vue-router'
+import type { Travel } from '../../../types/travel'
 
-const { data: travel, pending } = await useFetch<Travel>("/api/book/travel", {
+const route = useRoute()
+console.log(route.params.travelUid)
+
+const { data: travel } = await useFetch<Travel>('/api/book/travel', {
   params: { travelUid: route.params.travelUid },
-});
+})
 </script>

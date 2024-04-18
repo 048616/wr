@@ -11,35 +11,41 @@
         {{ $dayjs(travel.start).format("YYYY") }}
       </div>
     </div>
-    <img class="w-56 flex-none" :src="travel.pictureUrl" :alt="travel.title" />
+    <img
+      class="w-56 flex-none"
+      :src="travel.pictureUrl"
+      :alt="travel.title"
+    >
     <div class="w-auto flex-initial">
       <div class="flex gap-2">
         <div>
           {{ $t("user_rating") }} &nbsp;
           <CommonStaticRating
             :rating="travel.rating"
-            :Classes="'text-[20px] float-right'"
+            :style-classes="'text-[20px] float-right'"
           />
         </div>
       </div>
       <div>
-        <span class="">{{ $t("price") }}</span
-        >&nbsp;
+        <span class="">{{ $t("price") }}</span>&nbsp;
         <span class="font-bold text-green-700">{{
           formatCurrency(travel.price, "it")
         }}</span>
       </div>
-      <div class="text-lg font-bold">{{ travel.title }}</div>
+      <div class="text-lg font-bold">
+        {{ travel.title }}
+      </div>
       <div>
-        <span>{{ Duration }}</span
-        >&nbsp;
+        <span>{{ Duration }}</span>&nbsp;
         <span v-cloak>{{ $t("day", { count: Duration }) }}</span>
       </div>
-      <div v-cloak class="text-xs text-gray-500">
+      <div
+        v-cloak
+        class="text-xs text-gray-500"
+      >
         <span>
           {{ $t("from") }}
-          {{ $dayjs(travel.start).format("DD/MM") }} </span
-        >&nbsp;
+          {{ $dayjs(travel.start).format("DD/MM") }} </span>&nbsp;
         <span> {{ $t("to") }} {{ $dayjs(travel.end).format("DD/MM") }} </span>
       </div>
       <div>{{ travel.description }}</div>
@@ -54,32 +60,47 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { type Travel } from "@/types/travel";
-import { useTravels } from "@/composables/useTravels";
-import { useModalStore } from "@/store/modalStore";
 
-const modal = useModalStore();
+<script setup lang="ts">
+import type { Travel } from '@/types/travel'
+import { useTravels } from '@/composables/useTravels'
+import { useModalStore } from '@/store/modalStore'
+
+const modal = useModalStore()
 
 const props = defineProps<{
-  travel: Travel;
-}>();
+  travel: {
+    type:  PropType<Travel>
+   
+  }
+}>()
 
 const Duration = computed(() => {
-  return getDuration(props.travel.start, props.travel.end);
-});
+  return getDuration(props.travel.start, props.travel.end)
+})
 
-const { getDuration, formatCurrency } = useTravels();
+const { getDuration, formatCurrency } = useTravels()
 
 const openModal = (): void => {
   modal.setActiveModal({
-    name: "WizardBook",
+    name: 'WizardBook',
     travelUid: props.travel.uid,
-  });
-};
+  })
+}
 </script>
+
 <style scoped>
 [v-cloak] {
   display: none;
 }
 </style>
+    start(start: any, end: any): number;
+    end(start: any, end: any): number;
+    uid: any;
+    start(start: any): unknown;
+    pictureUrl: string | undefined;
+    title: string | undefined;
+    rating: any;
+    price(price: any, arg1: string): unknown;
+    end(end: any): unknown;
+    description: any;

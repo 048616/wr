@@ -1,23 +1,23 @@
-import type { Travel } from "~/types/travel";
-import { data } from "@/store/data";
+import type { Travel } from '~/types/travel'
+import { data } from '@/store/data'
 
 export default defineEventHandler(async (event) => {
-  const query = getQuery(event);
+  const query = getQuery(event)
 
-  let travels: Travel[] | undefined = data;
+  let travels: Travel[] | undefined = data
 
   if (travels) {
     if (query.orderByprice) {
       travels = travels.sort((a: Travel, b: Travel) => {
-        const order = query.orderByprice === "dsc" ? -1 : 1;
-        return order * (Number(a.price) - Number(b.price));
-      });
+        const order = query.orderByprice === 'dsc' ? -1 : 1
+        return order * (Number(a.price) - Number(b.price))
+      })
     }
 
     if (query.country) {
-      travels = travels.filter((o: Travel) => o.country === query.country);
+      travels = travels.filter((o: Travel) => o.country === query.country)
     }
   }
 
-  return travels ?? [];
-});
+  return travels ?? []
+})

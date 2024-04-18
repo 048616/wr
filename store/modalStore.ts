@@ -1,29 +1,29 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
 interface activeModal {
-  name: string;
-  travelUid: string;
+  name: string
+  travelUid: string
 }
 
 export const useModalStore = defineStore({
-  id: "ModalStore",
+  id: 'ModalStore',
   state: () => {
     return {
       activeModal: {
-        name: "",
-        travelUid: "",
+        name: '',
+        travelUid: '',
       } as activeModal,
-    };
+    }
   },
   actions: {
-    setActiveModal(payload: any): void {
-      console.log(payload);
-      this.activeModal.name = payload.name;
-      this.activeModal.travelUid = payload.travelUid;
+    setActiveModal(payload: object): void {
+      console.log(payload)
+      this.activeModal.name = payload.name
+      this.activeModal.travelUid = payload.travelUid
     },
     closeModal(): void {
-      this.activeModal.name = "";
-      this.activeModal.travelUid = "";
+      this.activeModal.name = ''
+      this.activeModal.travelUid = ''
     },
   },
-});
+})

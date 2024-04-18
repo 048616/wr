@@ -31,8 +31,12 @@
       </div>
       <div class="block w-full flex-grow lg:flex lg:w-auto lg:items-center">
         <div class="text-sm lg:flex-grow">
-          <NuxtLink to="/travels/">Travel </NuxtLink>
-          <NuxtLink to="/travels/book/0287587428570">Book </NuxtLink>
+          <NuxtLink to="/travels/">
+            Travel
+          </NuxtLink>
+          <NuxtLink to="/travels/book/0287587428570">
+            Book
+          </NuxtLink>
           <a
             href="#responsive-header"
             class="mt-4 block text-teal-200 hover:text-white lg:mt-0 lg:inline-block"
@@ -44,8 +48,7 @@
           <a
             href="#"
             class="mt-4 inline-block rounded border border-white px-4 py-2 text-sm leading-none text-white hover:border-transparent hover:bg-white hover:text-teal-500 lg:mt-0"
-            >Download</a
-          >
+          >Download</a>
         </div>
       </div>
     </nav>
