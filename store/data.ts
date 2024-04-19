@@ -1,5 +1,5 @@
 // crea un array di ogetti lungo 30 con dati riguardati viaggi con le seguenti chiavi: uid, title, start, end, description, pisctureUrl, price, rating
-import type { Travel } from '~/types/travel'
+import  { Travel } from '~/types/travel'
 
 export const data: Travel[] = [
   {

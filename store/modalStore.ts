@@ -16,7 +16,7 @@ export const useModalStore = defineStore({
     }
   },
   actions: {
-    setActiveModal(payload: object): void {
+    setActiveModal(payload: {name:string, travelUid:string}): void {
       console.log(payload)
       this.activeModal.name = payload.name
       this.activeModal.travelUid = payload.travelUid

@@ -62,18 +62,18 @@
 </template>
 
 <script setup lang="ts">
-import type { Travel } from '@/types/travel'
+import  { Travel } from '@/types/travel'
 import { useTravels } from '@/composables/useTravels'
 import { useModalStore } from '@/store/modalStore'
 
 const modal = useModalStore()
 
-const props = defineProps<{
+const props = defineProps({
   travel: {
-    type:  PropType<Travel>
-   
+    required: true,
+    type: Object as PropType<Travel>
   }
-}>()
+})
 
 const Duration = computed(() => {
   return getDuration(props.travel.start, props.travel.end)
@@ -94,13 +94,3 @@ const openModal = (): void => {
   display: none;
 }
 </style>
-    start(start: any, end: any): number;
-    end(start: any, end: any): number;
-    uid: any;
-    start(start: any): unknown;
-    pictureUrl: string | undefined;
-    title: string | undefined;
-    rating: any;
-    price(price: any, arg1: string): unknown;
-    end(end: any): unknown;
-    description: any;

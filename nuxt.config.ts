@@ -1,11 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', 'dayjs-nuxt', '@pinia/nuxt', '@nuxtjs/i18n'],
-  devtools: { enabled: true, disableAuthorization: true },
+  devtools: { enabled: false, disableAuthorization: true },
   css: ['~/assets/css/main.css'],
-  typescript: {
-    typeCheck: true
-  },
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { Travel } from '~/types/travel'
+import  { Travel } from '~/types/travel'
 import { data } from '@/store/data'
 
 interface Info {
@@ -8,7 +8,7 @@ interface Info {
 }
 
 interface Booking {
-  travel: object
+  travel: Travel
   people: number
   room: number
   insurance: boolean
@@ -21,7 +21,7 @@ export const useTravelsStore = defineStore({
     return {
       travelsData: data as Travel[],
       activeBooking: {
-        travel: {},
+        travel: {...new Travel()},
         people: 0,
         room: 0,
         insurance: false,

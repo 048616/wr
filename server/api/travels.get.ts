@@ -1,4 +1,4 @@
-import type { Travel } from '~/types/travel'
+import  { Travel } from '~/types/travel'
 import { data } from '@/store/data'
 
 export default defineEventHandler(async (event) => {

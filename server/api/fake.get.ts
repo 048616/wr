@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import type { Travel } from '~/types/travel'
+import  { Travel } from '~/types/travel'
 
 export default defineEventHandler(async () => {
   const travels: Travel[] = []
@@ -8,7 +8,7 @@ export default defineEventHandler(async () => {
     const country = faker.location.country()
     const startDate = faker.date.soon({ days: 30 }).toString()
     const travel: Travel = {
-      id: faker.string.uuid(),
+      uid: faker.string.uuid(),
       title:
         faker.helpers
           .arrayElements(['Tour in ', '15 giorni in ', 'Scopri il '], 1)

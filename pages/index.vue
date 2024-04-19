@@ -38,9 +38,9 @@
     </div>
     <div v-if="!pending">
       <TravelsRow
-        v-for="(item, index) in (travels as unknown as Travel[])"
+        v-for="(item, index) in travels"
         :key="index"
-        :travel="item"
+        :travel="(item as Travel)"
       />
     </div>
   </div>
@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import { useTravelsStore } from '@/store/travelStore'
-import type { Travel } from '~/types/travel'
+import  { Travel } from '~/types/travel'
 
 const selected: Ref<string> = ref('')
 
@@ -56,7 +56,7 @@ const order: Ref<string> = ref('asc')
 
 const { Countries } = useTravelsStore()
 
-const { data: travels, pending } = await useFetch<Travel[]>('/api/travels', {
+const { data: travels, pending } = await useFetch('/api/travels', {
   watch: [selected],
   params: { country: selected, orderByprice: order },
 })

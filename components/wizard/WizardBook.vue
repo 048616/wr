@@ -6,13 +6,13 @@
       </div>
 
       <div
-        v-if="!pending"
+        v-if="!pending && travel"
         class="mb-5 rounded-lg border border-slate-300 p-3"
       >
-        <div>{{ travel.title }}</div>
+        <div>{{ travel.value?.title }}</div>
         <div class="flex justify-between">
-          <span>Partenza: {{ $dayjs(travel.start).format("DD/MM") }} </span>
-          <span>Ritorno: {{ $dayjs(travel.end).format("DD/MM") }} </span>
+          <span>Partenza: {{ $dayjs(travel.value?.start).format("DD/MM") }} </span>
+          <span>Ritorno: {{ $dayjs(travel.value?.end).format("DD/MM") }} </span>
         </div>
       </div>
       <div class="flex justify-between">
@@ -213,7 +213,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Travel } from '../../types/travel'
+import { Travel } from '../../types/travel'
 import { useModalStore } from '~~/store/modalStore'
 import { useTravelsStore } from '~/store/travelStore'
 
@@ -224,12 +224,18 @@ const insurance = ref<boolean>(false)
 
 const booking = useTravelsStore()
 
-const { data: travel, pending } = await useFetch<Travel>('/api/book/travel', {
-  params: { travelUid: modal.activeModal.travelUid },
+const { data: travel , pending } = await useFetch<Travel>('/api/book/travel', {
+  params: { travelUid: modal.activeModal.travelUid }
 })
 
 const nextStep = () => {
-  booking.activeBooking.travel = travel
+if (travel.value){
+  booking.activeBooking.travel = travel.value
+} else{
+  booking.activeBooking.travel  = new Travel()
+}
+
+
   booking.activeBooking.people = people.value
   booking.activeBooking.room = room.value
   booking.activeBooking.insurance = insurance.value

@@ -17,7 +17,7 @@ import { useModalStore } from '~~/store/modalStore'
 
 const modal = useModalStore()
 
-const getComponent = (name: string): Comment => {
+const getComponent = (name: string): any => {
   let c = null
   switch (name) {
     case 'WizardBook':
